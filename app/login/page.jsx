@@ -1,5 +1,6 @@
 'use client';
 
+import { getURL } from '@/utils/helpers';
 import { useSupabaseClient, useUser } from '@supabase/auth-helpers-react';
 import { Auth, ThemeSupa } from '@supabase/auth-ui-react';
 import { useRouter } from 'next/navigation';
@@ -21,7 +22,7 @@ export default function Login() {
 			<Auth
 				supabaseClient={supabaseClient}
 				providers={['google']}
-				redirectTo='/'
+				redirectTo={getURL()}
 				appearance={{
 					theme: ThemeSupa,
 					variables: {

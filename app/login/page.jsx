@@ -21,7 +21,7 @@ export default function Login() {
 			<Auth
 				supabaseClient={supabaseClient}
 				providers={['google']}
-				redirectTo='http://localhost:3000/'
+				redirectTo='/'
 				appearance={{
 					theme: ThemeSupa,
 					variables: {

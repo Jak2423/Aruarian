@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	line-height: 1.5;
+	background-color: #fff;
+	color: #000;
+	min-height: 100vh;
+	-webkit-font-smoothing: antialiased;
+}
+
+.full-bleed {
+	position: relative;
+	width: 100%;
+}
+
+.custom-img {
+	object-fit: contain;
+	width: 100% !important;
+	position: static !important;
+	height: unset !important;
+}

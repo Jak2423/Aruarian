@@ -24,12 +24,9 @@ export default function ImagePage({ params: { id } }) {
 			<h2 className='mt-2 mb-2 text-lg text-gray-900 truncate md:mb-4 md:text-2xl'>
 				{image.title}
 			</h2>
-			<img
-				src={image.image_src}
-				alt={image.title}
-				className='object-contain w-full h-auto bg-no-repeat bg-cover rounded-lg'
-			/>
-			{/* <h3 className='font-medium text-gray-900 truncate text-md'>@{image.username}</h3> */}
+			<div className='relative w-full overflow-hidden bg-gray-400 rounded-lg '>
+				<img src={image.image_src} alt={image.title} className='object-contain w-full h-auto' />
+			</div>
 		</div>
 	);
 }

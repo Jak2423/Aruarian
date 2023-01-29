@@ -1,15 +1,23 @@
 'use client';
 
 import { useSupabaseClient, useUser } from '@supabase/auth-helpers-react';
+import { useRouter } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
 
 export default function Upload() {
-	const supabaseClient = useSupabaseClient();
+	const user = useUser();
+	const router = useRouter();
 	const textAreaRef = useRef(null);
+	const fileRef = useRef(null);
+	const supabaseClient = useSupabaseClient();
 	const [title, setTitle] = useState('');
 	const [selectedFile, setSelectedFile] = useState(null);
 
-	const user = useUser();
+	useEffect(() => {
+		if (!user) {
+			router.replace('/');
+		}
+	}, []);
 
 	useEffect(() => {
 		if (textAreaRef.current) {
@@ -34,7 +42,7 @@ export default function Upload() {
 			return;
 		}
 
-		const { data, error } = await supabaseClient.storage
+		const { error } = await supabaseClient.storage
 			.from('images')
 			.upload(`public/${selectedFile?.name}`, selectedFile);
 
@@ -45,6 +53,7 @@ export default function Upload() {
 
 		insertImageTo();
 		setTitle('');
+		fileRef.current.value = null;
 		setSelectedFile(null);
 	};
 
@@ -64,12 +73,13 @@ export default function Upload() {
 	};
 
 	return (
-		<div className='flex flex-col px-4 py-6 md:flex-row gap-5 md:py-10 md:px-20'>
-			<form className='flex flex-col max-w-md w-full gap-10'>
+		<div className='flex flex-col gap-5 px-4 py-6 md:flex-row md:py-10 md:px-20'>
+			<form className='flex flex-col w-full max-w-md gap-10'>
 				<input
 					type='file'
 					accept='image/*'
 					aria-label='File upload'
+					ref={fileRef}
 					onChange={(e) => handleUpload(e)}
 					className='text-xs file:text-xs lg:text-sm lg:file:text-sm file:mr-2 file:px-4 file:py-2 file:rounded-lg file:border-0 file:bg-black file:text-white hover:file:opacity-70'
 				/>
@@ -80,11 +90,11 @@ export default function Upload() {
 					value={title}
 					onChange={(e) => setTitle(e.target.value)}
 					ref={textAreaRef}
-					className='w-full text-lg border-b border-black outline-none  whitespace-pre-wrap break-words resize-none overflow-hidden pb-5 lg:text-2xl '
+					className='w-full pb-5 overflow-hidden text-lg break-words whitespace-pre-wrap border-b border-black outline-none resize-none lg:text-2xl '
 				/>
 				<button
 					onClick={(e) => submitImage(e)}
-					className='w-20 text-sm bg-black text-white  rounded-lg px-4 py-2 hover:opacity-70'
+					className='w-20 px-4 py-2 text-sm text-white bg-black rounded-lg hover:opacity-70'
 				>
 					Submit
 				</button>
@@ -93,7 +103,7 @@ export default function Upload() {
 				<img
 					src={URL.createObjectURL(selectedFile)}
 					alt='Selected image preview'
-					className='w-full h-auto bg-cover bg-no-repeat object-contain rounded-lg shadow-lg'
+					className='object-contain w-full h-auto bg-no-repeat bg-cover rounded-lg shadow-lg'
 				/>
 			)}
 		</div>

@@ -14,7 +14,7 @@ export default function Navbar() {
 		<nav className='sticky top-0 z-40 bg-white'>
 			<div className='relative flex items-center justify-between px-2 py-4'>
 				<Link href='/'>
-					<h1 className='text-lg md:text-2xl'>Aruarian</h1>
+					<h1 className='text-xl md:text-2xl'>Aruarian</h1>
 				</Link>
 				<div className=''>
 					{user ? (

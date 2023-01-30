@@ -29,10 +29,7 @@ export default function ImagePage({ params: { id } }) {
 
 	return (
 		<div className='w-full max-w-md px-2 py-4'>
-			<h2 className='mt-2 mb-2 text-lg text-gray-900 truncate md:mb-4 md:text-2xl'>
-				{image.title}
-			</h2>
-			<div className='relative w-full overflow-hidden bg-gray-400 rounded-lg '>
+			<div className='relative w-full overflow-hidden rounded-lg '>
 				<Image
 					src={image.image_src}
 					alt={image.title}
@@ -41,10 +38,13 @@ export default function ImagePage({ params: { id } }) {
 					sizes='50vw'
 					className={cn(
 						'duration-300 ease-in custom-img rounded-lg hover:opacity-70 shadow-lg',
-						isLoading ? 'scale-110 blur-2xl grayscale' : 'scale-100 blur-0 grayscale-0',
+						isLoading ? 'opacity-0' : 'opacity-100',
 					)}
 					onLoadingComplete={() => SetIsLoading(false)}
 				/>
+				<h2 className='my-2 ml-2 text-lg text-gray-900 truncate md:mb-4 md:text-xl'>
+					# {image.title}
+				</h2>
 			</div>
 		</div>
 	);

@@ -1,7 +1,9 @@
 'use client';
 
 import { useSupabaseClient } from '@supabase/auth-helpers-react';
+import Image from 'next/image';
 import { useEffect, useState } from 'react';
+import cn from 'classnames';
 
 export default function ImagePage({ params: { id } }) {
 	const [image, setImage] = useState({});
@@ -11,9 +13,15 @@ export default function ImagePage({ params: { id } }) {
 
 	useEffect(() => {
 		async function getImageById() {
-			const { data } = await supabaseClient.from('images').select().match({ id }).single();
+			const { data, error } = await supabaseClient
+				.from('images')
+				.select()
+				.match({ id })
+				.single();
 
-			setImage(data);
+			if (!error) {
+				setImage(data);
+			}
 		}
 
 		getImageById();
@@ -25,7 +33,18 @@ export default function ImagePage({ params: { id } }) {
 				{image.title}
 			</h2>
 			<div className='relative w-full overflow-hidden bg-gray-400 rounded-lg '>
-				<img src={image.image_src} alt={image.title} className='object-contain w-full h-auto' />
+				<Image
+					src={image.image_src}
+					alt={image.title}
+					fill={true}
+					quality={20}
+					sizes='50vw'
+					className={cn(
+						'duration-300 ease-in custom-img rounded-lg hover:opacity-70 shadow-lg',
+						isLoading ? 'scale-110 blur-2xl grayscale' : 'scale-100 blur-0 grayscale-0',
+					)}
+					onLoadingComplete={() => SetIsLoading(false)}
+				/>
 			</div>
 		</div>
 	);

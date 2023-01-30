@@ -1,11 +1,7 @@
-'use client';
-
 import './globals.css';
+import SupabaseProvider from './components/supabase-provider';
 import { Poppins } from '@next/font/google';
-import { createBrowserSupabaseClient } from '@supabase/auth-helpers-nextjs';
-import { SessionContextProvider } from '@supabase/auth-helpers-react';
-import Navbar from './Navbar';
-import { useState } from 'react';
+import Navbar from './components/Navbar';
 
 const poppins = Poppins({
 	subsets: ['latin'],
@@ -14,16 +10,14 @@ const poppins = Poppins({
 });
 
 export default function RootLayout({ children }) {
-	const [supabaseClient] = useState(() => createBrowserSupabaseClient());
-
 	return (
 		<html lang='en'>
 			<head />
 			<body className={`${poppins.variable} font-poppins max-w-6xl w-full mx-auto`}>
-				<SessionContextProvider supabaseClient={supabaseClient}>
+				<SupabaseProvider>
 					<Navbar />
 					{children}
-				</SessionContextProvider>
+				</SupabaseProvider>
 			</body>
 		</html>
 	);

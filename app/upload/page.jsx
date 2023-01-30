@@ -1,23 +1,15 @@
 'use client';
 
 import { useSupabaseClient, useUser } from '@supabase/auth-helpers-react';
-import { useRouter } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
 
 export default function Upload() {
 	const user = useUser();
-	const router = useRouter();
 	const textAreaRef = useRef(null);
 	const fileRef = useRef(null);
 	const supabaseClient = useSupabaseClient();
 	const [title, setTitle] = useState('');
 	const [selectedFile, setSelectedFile] = useState(null);
-
-	useEffect(() => {
-		if (!user) {
-			router.replace('/');
-		}
-	}, []);
 
 	useEffect(() => {
 		if (textAreaRef.current) {
@@ -47,7 +39,7 @@ export default function Upload() {
 			.upload(`public/${selectedFile?.name}`, selectedFile);
 
 		if (error) {
-			console.log(error);
+			console.log(JSON.stringify(error));
 			return;
 		}
 
@@ -67,7 +59,7 @@ export default function Upload() {
 			.insert({ title: title, user_id: user.id, image_src: data.publicUrl });
 
 		if (error) {
-			console.log(error);
+			console.log(JSON.stringify(error));
 			return;
 		}
 	};

@@ -1,7 +1,7 @@
 import './globals.css';
-import SupabaseProvider from './components/supabase-provider';
+import SupabaseProvider from '../components/supabase-provider';
 import { Poppins } from '@next/font/google';
-import Navbar from './components/Navbar';
+import Navbar from '../components/Navbar';
 
 const poppins = Poppins({
 	subsets: ['latin'],

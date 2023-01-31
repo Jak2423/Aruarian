@@ -15,8 +15,8 @@ module.exports = {
 			aspectRatio: {
 				auto: 'auto',
 			},
-			height: {
-				helper: 'calc(100vh - 80px)',
+			minHeight: {
+				loading: 'calc(100vh - 100px)',
 			},
 		},
 	},

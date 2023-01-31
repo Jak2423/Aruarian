@@ -1,5 +1,5 @@
 import { createClient } from '@/utils/supabase-server';
-import ImageCard from './components/ImageCard';
+import ImageCard from '../components/ImageCard';
 
 async function getImages() {
 	const supabaseClient = createClient();

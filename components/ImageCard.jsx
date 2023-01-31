@@ -9,7 +9,7 @@ export default function ImageCard({ image }) {
 	const [isLoading, SetIsLoading] = useState(true);
 
 	return (
-		<div className='mb-2 bg-gray-200 rounded-lg break-inside-avoid lg:mb-4'>
+		<div className='mb-2 bg-gray-300 rounded-lg break-inside-avoid lg:mb-4'>
 			<Link href={`/images/${image.id}`} className='relative w-full overflow-hidden bg-gray-600'>
 				<Image
 					alt={image.title}

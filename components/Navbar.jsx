@@ -11,7 +11,7 @@ export default function Navbar() {
 	const supabaseClient = useSupabaseClient();
 
 	return (
-		<nav className='sticky top-0 z-40 bg-white'>
+		<nav className='sticky top-0 z-40 bg-gray-100'>
 			<div className='relative flex items-center justify-between px-2 py-4'>
 				<Link href='/'>
 					<h1 className='text-xl md:text-2xl'>Aruarian</h1>

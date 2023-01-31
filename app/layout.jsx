@@ -1,4 +1,4 @@
-import './globals.css';
+import '../styles/globals.css';
 import SupabaseProvider from '../components/supabase-provider';
 import { Poppins } from '@next/font/google';
 import Navbar from '../components/Navbar';

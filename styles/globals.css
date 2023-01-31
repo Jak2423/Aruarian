@@ -9,11 +9,10 @@
 }
 
 body {
-	line-height: 1.5;
-	background-color: #fff;
-	color: #000;
+	line-height: 1.5rem;
 	min-height: 100vh;
 	-webkit-font-smoothing: antialiased;
+	@apply text-gray-700 bg-gray-100;
 }
 
 .full-bleed {

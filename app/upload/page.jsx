@@ -1,10 +1,12 @@
 'use client';
 
 import { useSupabaseClient, useUser } from '@supabase/auth-helpers-react';
+import { useRouter } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
 
 export default function Upload() {
 	const user = useUser();
+	const router = useRouter();
 	const textAreaRef = useRef(null);
 	const fileRef = useRef(null);
 	const supabaseClient = useSupabaseClient();
@@ -62,6 +64,8 @@ export default function Upload() {
 			console.log(JSON.stringify(error));
 			return;
 		}
+
+		router.replace('/');
 	};
 
 	return (

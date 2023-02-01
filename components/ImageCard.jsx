@@ -10,7 +10,10 @@ export default function ImageCard({ image }) {
 
 	return (
 		<div className='mb-2 bg-gray-300 rounded-lg break-inside-avoid lg:mb-4'>
-			<Link href={`/images/${image.id}`} className='relative w-full overflow-hidden bg-gray-600'>
+			<Link
+				href={`/images/${image.id}`}
+				className='relative w-full overflow-hidden bg-gray-600 break-inside-avoid '
+			>
 				<Image
 					alt={image.title}
 					src={image.image_src}

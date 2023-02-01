@@ -15,11 +15,6 @@ body {
 	@apply text-gray-700 bg-gray-100;
 }
 
-.full-bleed {
-	position: relative;
-	width: 100%;
-}
-
 .custom-img {
 	object-fit: contain;
 	width: 100% !important;

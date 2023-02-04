@@ -18,6 +18,9 @@ module.exports = {
 			minHeight: {
 				loading: 'calc(100vh - 100px)',
 			},
+			maxHeight: {
+				screen1: 'calc(100vh - 100px)',
+			},
 		},
 	},
 	corePlugins: {

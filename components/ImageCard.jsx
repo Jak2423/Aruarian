@@ -16,7 +16,7 @@ export default function ImageCard({ image }) {
 			>
 				<Image
 					alt={image.title}
-					src={image.image_src}
+					src={image.href}
 					fill={true}
 					quality={20}
 					sizes='50vw, (min-width: 640px) 33vw, (min-width: 1024px) 25vw'

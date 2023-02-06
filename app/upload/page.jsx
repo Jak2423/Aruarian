@@ -34,7 +34,7 @@ export default function Upload() {
 		e.preventDefault();
 
 		if (!selectedFile) {
-			return;
+			throw new Error('An image is required to submit.');
 		}
 
 		const { error } = await supabaseClient.storage
@@ -42,8 +42,7 @@ export default function Upload() {
 			.upload(`public/${selectedFile?.name}`, selectedFile);
 
 		if (error) {
-			console.log(JSON.stringify(error));
-			return;
+			throw new Error(JSON.stringify(error));
 		}
 
 		insertImageTo();
@@ -65,8 +64,7 @@ export default function Upload() {
 		});
 
 		if (error) {
-			console.log(JSON.stringify(error));
-			return;
+			throw new Error(JSON.stringify(error));
 		}
 
 		router.replace('/');
@@ -93,7 +91,7 @@ export default function Upload() {
 					value={title}
 					onChange={(e) => setTitle(e.target.value)}
 					ref={textAreaRef}
-					className='w-full pb-5 overflow-hidden text-lg break-words whitespace-pre-wrap bg-bgPrimary border-b border-subcolor outline-none resize-none lg:text-2xl placeholder:text-sub'
+					className='w-full pb-5 overflow-hidden text-lg break-words whitespace-pre-wrap bg-bgPrimary border-b border-b-subcolor outline-none resize-none lg:text-2xl placeholder:text-sub'
 				/>
 				<button
 					onClick={(e) => submitImage(e)}

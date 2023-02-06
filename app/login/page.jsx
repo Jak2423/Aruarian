@@ -36,13 +36,10 @@ export default function Login() {
 						dark: {
 							colors: {
 								brandButtonText: '#2e384e',
-								// inputBackground: '#263041',
 								inputBorderHover: '#ff7991',
 								inputBorderFocus: '#ff7991',
 								anchorTextColor: '#fffaf9',
 								anchorTextHoverColor: '#ff7991',
-								// defaultButtonBackground: '#263041',
-								// defaultButtonBackgroundHover: '#ff7991',
 							},
 						},
 					},

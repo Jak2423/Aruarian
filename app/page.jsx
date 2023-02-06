@@ -9,10 +9,8 @@ async function getImages() {
 		.order('created_at', { ascending: false });
 
 	if (error) {
-		console.log(JSON.stringify(error));
-		return;
+		throw new Error(JSON.stringify(error));
 	}
-
 	return data;
 }
 

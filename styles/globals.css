@@ -12,7 +12,7 @@ body {
 	line-height: 1.5rem;
 	min-height: 100vh;
 	-webkit-font-smoothing: antialiased;
-	@apply text-gray-700 bg-gray-100;
+	@apply text-primary bg-bgPrimary;
 }
 
 .custom-img {

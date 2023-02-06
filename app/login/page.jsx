@@ -28,12 +28,26 @@ export default function Login() {
 					variables: {
 						default: {
 							colors: {
-								brand: '#000',
-								brandAccent: '#222',
+								brand: '#ff7991',
+								brandAccent: '#ff7991',
+								inputLabelText: '#fffaf9',
+							},
+						},
+						dark: {
+							colors: {
+								brandButtonText: '#2e384e',
+								// inputBackground: '#263041',
+								inputBorderHover: '#ff7991',
+								inputBorderFocus: '#ff7991',
+								anchorTextColor: '#fffaf9',
+								anchorTextHoverColor: '#ff7991',
+								// defaultButtonBackground: '#263041',
+								// defaultButtonBackgroundHover: '#ff7991',
 							},
 						},
 					},
 				}}
+				theme='dark'
 			/>
 		</div>
 	);

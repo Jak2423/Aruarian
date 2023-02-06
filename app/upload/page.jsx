@@ -82,7 +82,7 @@ export default function Upload() {
 					aria-label='File upload'
 					ref={fileRef}
 					onChange={(e) => handleUpload(e)}
-					className='w-full max-w-xs text-xs truncate border border-black rounded-lg file:text-xs lg:text-sm lg:file:text-sm file:mr-2 file:px-4 file:py-2 file:border-0 file:bg-gray-700 file:text-white hover:file:opacity-70'
+					className='w-full max-w-xs text-xs truncate border-2 border-maincolor rounded-lg file:text-xs lg:text-sm lg:file:text-sm file:mr-2 file:px-4 file:py-2 file:border-0 file:bg-bgSecondary file:text-primary hover:file:opacity-70'
 				/>
 				<textarea
 					type='text'
@@ -93,12 +93,12 @@ export default function Upload() {
 					value={title}
 					onChange={(e) => setTitle(e.target.value)}
 					ref={textAreaRef}
-					className='w-full pb-5 overflow-hidden text-lg break-words whitespace-pre-wrap bg-gray-100 border-b border-black outline-none resize-none lg:text-2xl'
+					className='w-full pb-5 overflow-hidden text-lg break-words whitespace-pre-wrap bg-bgPrimary border-b border-subcolor outline-none resize-none lg:text-2xl placeholder:text-sub'
 				/>
 				<button
 					onClick={(e) => submitImage(e)}
 					disabled={isDisabled ? true : false}
-					className='w-20 px-4 py-2 text-sm text-white bg-black rounded-lg hover:opacity-70 disabled:opacity-40'
+					className='w-36 px-auto py-2 text-md text-main bg-main rounded-lg hover:opacity-70 disabled:opacity-40'
 				>
 					Submit
 				</button>

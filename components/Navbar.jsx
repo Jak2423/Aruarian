@@ -11,15 +11,15 @@ export default function Navbar() {
 	const supabaseClient = useSupabaseClient();
 
 	return (
-		<nav className='sticky top-0 z-40 bg-gray-100'>
+		<nav className='sticky top-0 z-40 bg-bgPrimary'>
 			<div className='relative flex items-center justify-between px-2 py-4'>
 				<Link href='/'>
-					<h1 className='text-xl md:text-2xl'>Aruarian</h1>
+					<h1 className='text-secondary font-medium text-xl md:text-2xl'>Aruarian</h1>
 				</Link>
-				<div className=''>
+				<div>
 					{user ? (
-						<div className='flex items-center space-x-8'>
-							<Link href='/upload' className='text-lg md:text-xl hover:opacity-70'>
+						<div className='flex items-center space-x-8 '>
+							<Link href='/upload' className='text-lg md:text-xl hover:text-secondary'>
 								<FiUpload />
 							</Link>
 							<span
@@ -27,13 +27,16 @@ export default function Navbar() {
 									await supabaseClient.auth.signOut();
 									router.push('/login');
 								}}
-								className='text-sm font-medium cursor-pointer md:text-base hover:opacity-70'
+								className='text-sm font-medium cursor-pointer md:text-base hover:text-secondary'
 							>
 								Log out
 							</span>
 						</div>
 					) : (
-						<Link href='/login' className='text-sm font-medium md:text-base hover:opacity-70'>
+						<Link
+							href='/login'
+							className='text-sm font-medium md:text-base hover:text-secondary'
+						>
 							Log in
 						</Link>
 					)}

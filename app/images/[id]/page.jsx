@@ -24,9 +24,9 @@ export default function ImagePage({ params: { id } }) {
 	}, []);
 
 	return (
-		<div className='flex px-2 py-4'>
-			<div className='max-h-[30rem] max-w-md rounded-lg'>
-				<h2 className='my-2 ml-2 text-lg truncate md:mb-4 md:text-xl'>{image.title}</h2>
+		<div className='flex px-2 py-4 '>
+			<div className='max-h-[30rem] max-w-md'>
+				<h2 className='my-2 ml-2 text-lg truncate md:mb-4 md:text-xl '>{image.title}</h2>
 				<a href={image.href} target='_blank' rel='noopener noreferrer'>
 					<img
 						src={image.href}

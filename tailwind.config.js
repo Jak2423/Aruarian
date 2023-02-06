@@ -21,6 +21,21 @@ module.exports = {
 			maxHeight: {
 				screen1: 'calc(100vh - 100px)',
 			},
+			textColor: {
+				primary: '#fffaf9',
+				secondary: '#ff7991',
+				main: '#2e384e',
+				sub: '#4a768c',
+			},
+			backgroundColor: {
+				bgPrimary: '#2e384e',
+				bgSecondary: '#263041',
+				main: '#ff7991',
+			},
+			borderColor: {
+				maincolor: '#ff7991',
+				subcolor: '#4a768c',
+			},
 		},
 	},
 	corePlugins: {
